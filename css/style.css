@@ -10,6 +10,13 @@ body {
     background-color: rgb(20, 20, 20);
 }
 
+#movie-btn {
+    width: 7rem;
+    position: fixed;
+    z-index: 3;
+    cursor: pointer;
+}
+
 video {
     width: 80vw;
     height: 100vh;
@@ -47,18 +54,16 @@ video {
     border-image-slice: 1;
 }
 
-.film-roll:nth-of-type(1) {
+.film-roll {
     animation-name: swinging-film-roll;
     animation-duration: 3s;
     animation-iteration-count: infinite;
-    top: 18vh;
     position: absolute;
     width: 100%;
-    transform: skew(5deg, 2deg);
     z-index: 1;
 }
 
-.film-roll:nth-of-type(2) {
+/* .film-roll:nth-of-type(2) {
     animation-name: swinging-film-roll;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -67,16 +72,18 @@ video {
     width: 100%;
     transform: skew(-5deg, -2deg);
     z-index: 1;
-}
+} */
 
 .outline-1 {
+    width: 100%;
     padding: 10px;
     background-color: black;
 }
 
 .outline-2 {
+    width: 100%;
     display: flex;
-    height: 18.75rem;
+    height: 20rem;
     background-color: black;
     border-color: white;
     border-top-style: dashed;
@@ -86,15 +93,24 @@ video {
 }
 
 .part {
-    width: 20rem;
+    width: 100%;
     height: 100%;
     padding: 0.625rem 0;
     margin: 0 0.5rem;
+}
+
+.placeholder-item {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
 }
 
 .item {
     width: 100%;
     height: 100%;
     background-color: gray;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     cursor: pointer;
 }
