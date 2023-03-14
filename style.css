@@ -51,7 +51,7 @@ video {
     animation-name: swinging-film-roll;
     animation-duration: 3s;
     animation-iteration-count: infinite;
-    top: 16vh;
+    top: 18vh;
     position: absolute;
     width: 100%;
     transform: skew(5deg, 2deg);
@@ -62,7 +62,7 @@ video {
     animation-name: swinging-film-roll;
     animation-duration: 3s;
     animation-iteration-count: infinite;
-    top: 110vh;
+    top: 150vh;
     position: absolute;
     width: 100%;
     transform: skew(-5deg, -2deg);
