@@ -23,7 +23,7 @@ video {
     opacity: 0.8;
 }
 
-.curtain-left {
+#curtain-left {
     position: fixed;
     left: 0;
     z-index: 2;
@@ -35,7 +35,7 @@ video {
     border-image-slice: 1;
 }
 
-.curtain-right {
+#curtain-right {
     position: fixed;
     right: 0;
     z-index: 2;
