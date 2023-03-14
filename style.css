@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    background-color: rgb(20, 20, 20);
+}
+
+video {
+    width: 80vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.opacity {
+    opacity: 0.8;
+}
+
+.curtain-left {
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    width: 10vw;
+    height: 100vh;
+    background-color: brown;
+    border-right: 9.6px solid transparent;
+    border-image: linear-gradient(0deg, rgba(49, 48, 0, 1) 0%, rgba(108, 105, 0, 1) 10%, rgba(125, 121, 0, 1) 15%, rgba(143, 138, 0, 1) 25%, rgba(209, 202, 0, 1) 35%, rgba(255, 246, 0, 1) 50%, rgba(209, 202, 0, 1) 65%, rgba(143, 138, 0, 1) 75%, rgba(125, 121, 0, 1) 85%, rgba(108, 105, 0, 1) 90%, rgba(49, 48, 0, 1) 100%);
+    border-image-slice: 1;
+}
+
+.curtain-right {
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    width: 10vw;
+    height: 100vh;
+    background-color: brown;
+    border-left: 9.6px solid transparent;
+    border-image: linear-gradient(0deg, rgba(49, 48, 0, 1) 0%, rgba(108, 105, 0, 1) 10%, rgba(125, 121, 0, 1) 15%, rgba(143, 138, 0, 1) 25%, rgba(209, 202, 0, 1) 35%, rgba(255, 246, 0, 1) 50%, rgba(209, 202, 0, 1) 65%, rgba(143, 138, 0, 1) 75%, rgba(125, 121, 0, 1) 85%, rgba(108, 105, 0, 1) 90%, rgba(49, 48, 0, 1) 100%);
+    border-image-slice: 1;
+}
+
+.film-roll:nth-of-type(1) {
+    animation-name: swinging-film-roll;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    top: 16vh;
+    position: absolute;
+    width: 100%;
+    transform: skew(5deg, 2deg);
+    z-index: 1;
+}
+
+.film-roll:nth-of-type(2) {
+    animation-name: swinging-film-roll;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    top: 110vh;
+    position: absolute;
+    width: 100%;
+    transform: skew(-5deg, -2deg);
+    z-index: 1;
+}
+
+.outline-1 {
+    padding: 10px;
+    background-color: black;
+}
+
+.outline-2 {
+    display: flex;
+    height: 18.75rem;
+    background-color: black;
+    border-color: white;
+    border-top-style: dashed;
+    border-bottom-style: dashed;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+}
+
+.part {
+    width: 20rem;
+    height: 100%;
+    padding: 0.625rem 0;
+    margin: 0 0.5rem;
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    cursor: pointer;
+}

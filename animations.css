@@ -1,0 +1,21 @@
+@keyframes swinging-film-roll {
+    0% {
+        left: 0;
+    }
+
+    25% {
+        left: 5px;
+    }
+
+    50% {
+        left: 10px;
+    }
+
+    75% {
+        left: 5px;
+    }
+
+    100% {
+        left: 0;
+    }
+}
