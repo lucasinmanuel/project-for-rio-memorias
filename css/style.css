@@ -13,8 +13,20 @@ body {
 #movie-btn {
     width: 7rem;
     position: fixed;
+    top: 12.8px;
+    left: 0.8rem;
     z-index: 3;
     cursor: pointer;
+}
+
+#megaphone-btn {
+    width: 7rem;
+    position: fixed;
+    top: 150px;
+    left: 0.8rem;
+    z-index: 3;
+    cursor: pointer;
+    display: none;
 }
 
 video {

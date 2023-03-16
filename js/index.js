@@ -1,15 +1,58 @@
 import content from "./content.js";
 
-let movieBtn = document.getElementById("movie-btn");
+let filmRollWrapper = document.getElementById("film-roll-wrapper");
 let bgMovie = document.getElementById("bg-movie");
+let audiosWrapper = document.getElementById("audios-wrapper");
+
+let movieBtn = document.getElementById("movie-btn");
+let megaphoneBtn = document.getElementById("megaphone-btn");
+
+let movieBtnBoolean = true;
+let megaphoneBtnBoolean = true;
 
 movieBtn.addEventListener("click",()=>{
-    bgMovie.innerHTML = `
-        <video muted autoplay loop>
-            <source src="./videos/old-cinema-filter.mp4" type="video/mp4">
-        </video>
-    `
-    configFilmRolls()
+    if(movieBtnBoolean){
+        movieBtn.style.opacity = 0.6;
+        bgMovie.innerHTML = `
+            <video muted autoplay loop>
+                <source src="./videos/old-cinema-filter.mp4" type="video/mp4">
+            </video>
+        `
+        audiosWrapper.innerHTML = `
+            <audio loop>
+                <source src="./audios/movie-projector-noise.mp3" type="audio/mp3">
+            </audio>
+        `
+
+        audiosWrapper.children[0].volume =  megaphoneBtnBoolean ? 0.1 : 0;
+
+        audiosWrapper.children[0].autoplay = true;
+        audiosWrapper.children[0].load();
+
+        megaphoneBtn.style.display = "block";
+        movieBtnBoolean = false;
+
+        configFilmRolls()
+    }else{
+        movieBtn.style.opacity = 1;
+        filmRollWrapper.innerHTML = "";
+        bgMovie.innerHTML = "";
+        audiosWrapper.innerHTML = "";
+        megaphoneBtn.style.display = "none";
+        movieBtnBoolean = true;
+    }
+})
+
+megaphoneBtn.addEventListener("click",()=>{
+    if(megaphoneBtnBoolean){
+        megaphoneBtn.style.opacity = 0.6;
+        audiosWrapper.children[0].volume = 0;
+        megaphoneBtnBoolean = false;
+    }else{
+        megaphoneBtn.style.opacity = 1;
+        audiosWrapper.children[0].volume = 0.1;
+        megaphoneBtnBoolean = true;
+    }
 })
 
 window.addEventListener("resize",()=>{
@@ -18,203 +61,46 @@ window.addEventListener("resize",()=>{
 })
 
 function configFilmRolls(){
-let filmRollWrapper = document.getElementById("film-roll-wrapper");
-
     let viewWidth = window.innerWidth
-    if(viewWidth> 1024){
-            filmRollWrapper.innerHTML = `
-                <div style="top:16vh;transform: skew(5deg, 2deg);" class="film-roll">
-                    <div class="outline-1">
-                        <div class="outline-2">
-                            <div class="part">
-                                <div class="placeholder-item"></div>
-                            </div>
-                            <div class="part">
-                                <div style="background-image: url(${content[0].pathImage})" class="item"></div>
-                            </div>
-                            <div class="part">
-                                <div style="background-image: url(${content[1].pathImage})" class="item"></div>
-                            </div>
-                            <div class="part">
-                                <div style="background-image: url(${content[2].pathImage})" class="item"></div>
-                            </div>
-                            <div class="part">
-                                <div class="placeholder-item"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="top:150vh;transform: skew(-5deg, -2deg);" class="film-roll">
-                    <div class="outline-1">
-                        <div class="outline-2">
-                            <div class="part">
-                                <div class="placeholder-item"></div>
-                            </div>
-                            <div class="part">
-                                <div style="background-image: url(${content[3].pathImage})" class="item"></div>
-                            </div>
-                            <div class="part">
-                                <div style="background-image: url(${content[4].pathImage})" class="item"></div>
-                            </div>
-                            <div class="part">
-                                <div style="background-image: url(${content[5].pathImage})" class="item"></div>
-                            </div>
-                            <div class="part">
-                                <div class="placeholder-item"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
+    if(viewWidth > 1024){
+        filmRollsGenerator(2,["","",""])
     }else if(viewWidth > 720){
-        filmRollWrapper.innerHTML = `
-            <div style="top:16vh;transform: skew(5deg, 2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[0].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[1].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="top:150vh;transform: skew(-5deg, -2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[2].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[3].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="top:284vh;transform:skew(5deg, 2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[4].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[5].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-         `
+        filmRollsGenerator(3,["",""])
     }else{
-        filmRollWrapper.innerHTML = `
-            <div style="top:16vh;transform: skew(5deg, 2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[0].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="top:150vh;transform: skew(-5deg, -2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[1].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="top:284vh;transform:skew(5deg, 2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[2].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="top:418vh;transform:skew(-5deg, -2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[3].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="top:552vh;transform:skew(5deg, 2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[4].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="top:686vh;transform:skew(-5deg, -2deg);" class="film-roll">
-                <div class="outline-1">
-                    <div class="outline-2">
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                        <div class="part">
-                            <div style="background-image: url(${content[5].pathImage})" class="item"></div>
-                        </div>
-                        <div class="part">
-                            <div class="placeholder-item"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-         `
+        filmRollsGenerator(6,[""])
     }
 }
+
+function filmRollsGenerator(nFilmRolls,nParts){
+    let globalIndex = 0;
+    let filmRollsHeight = 16
+    for(let i = 0;i < nFilmRolls;i++){
+        filmRollWrapper.innerHTML += `
+            <div style="top:${filmRollsHeight}vh;transform: skew(5deg, 2deg);" class="film-roll">
+                <div class="outline-1">
+                    <div class="outline-2">
+                        <div class="part">
+                            <div class="placeholder-item"></div>
+                        </div>
+                        ${
+                           nParts.map(()=>{
+                            globalIndex++
+                            return(`
+                                <div class="part">
+                                    <div style="background-image: url(${content[globalIndex - 1].pathImage})" class="item"></div>
+                                </div>
+                            `)
+                           }) 
+                        }
+                        <div class="part">
+                            <div class="placeholder-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+        `
+        filmRollsHeight += 134
+    }
+}
+
