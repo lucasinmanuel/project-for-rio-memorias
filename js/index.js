@@ -64,7 +64,7 @@ window.addEventListener("resize",()=>{
 
 function configFilmRolls(){
     filmRollWrapper.innerHTML = "";
-    let viewWidth = window.innerWidth;
+    let viewWidth = document.documentElement.clientWidth;
     if(viewWidth > 1024){
         filmRollsGenerator(2,["","",""])
     }else if(viewWidth > 720){
@@ -143,4 +143,3 @@ function modalGenerator(partIndex){
         modalWrapper.innerHTML = "";
     })
 }
-

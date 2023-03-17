@@ -11,8 +11,8 @@ body {
 }
 
 #modal-wrapper {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 10;
     position: fixed;
     top: 0;
@@ -24,7 +24,7 @@ body {
 .modal {
     width: 90%;
     height: 90%;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -143,17 +143,6 @@ video {
     width: 95%;
     z-index: 1;
 }
-
-/* .film-roll:nth-of-type(2) {
-    animation-name: swinging-film-roll;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    top: 150vh;
-    position: absolute;
-    width: 100%;
-    transform: skew(-5deg, -2deg);
-    z-index: 1;
-} */
 
 .outline-1 {
     width: 100%;
