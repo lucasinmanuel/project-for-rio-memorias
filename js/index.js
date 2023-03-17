@@ -119,10 +119,7 @@ function modalGenerator(partIndex){
     modalWrapper.innerHTML = `
         <div class="modal">
             <b id="close-modal">X</b>
-            <div class="credits">
-                <span>${content[partIndex].creditText}</span>
-                <span>Foto tirada do site: <a target="_blank" href="${content[partIndex].creditLink}">${content[partIndex].creditLink}</a></span>
-            </div>
+            <span class="picture-desc">${content[partIndex].pictureDesc}</span>
             <div class="overview">
                 <img src="${content[partIndex].pathImage}" />
                 <div>
@@ -135,6 +132,14 @@ function modalGenerator(partIndex){
                     return(`<p>${value}</p>`)
                 }).join("")
             }
+            <div class="credits">
+                <span>Créditos: </span>
+                ${
+                    content[partIndex].creditLink.split("::").map((value)=>{
+                        return(`<span><a target="_blank" href="${value}">${value}</a></span>`)
+                    }).join("")
+                }
+            </div>
         </div>
     `
     document.getElementById("close-modal").addEventListener("click",()=>{

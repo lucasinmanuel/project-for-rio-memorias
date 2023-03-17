@@ -47,9 +47,17 @@ body {
     transform: scale(1.4);
 }
 
-.credits span {
+.picture-desc {
     font-size: 16px;
     margin-bottom: 0.5rem;
+    color: darkgrey;
+    display: block;
+    max-width: 95%;
+}
+
+.credits span {
+    font-size: 16px;
+    margin-top: 0.8rem;
     color: darkgrey;
     display: block;
     max-width: 95%;
@@ -108,7 +116,7 @@ video {
 }
 
 .opacity {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 #curtain-left {
@@ -140,7 +148,8 @@ video {
     animation-duration: 3s;
     animation-iteration-count: infinite;
     position: absolute;
-    width: 95%;
+    width: 96%;
+    margin-left: 1.5%;
     z-index: 1;
 }
 
