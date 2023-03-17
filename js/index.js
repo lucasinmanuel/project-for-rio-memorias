@@ -59,7 +59,7 @@ megaphoneBtn.addEventListener("click",()=>{
 })
 
 window.addEventListener("resize",()=>{
-    configFilmRolls()
+    !movieBtnBoolean && configFilmRolls()
 })
 
 function configFilmRolls(){
@@ -114,6 +114,7 @@ function filmRollsGenerator(nFilmRolls,nParts){
 }
 
 function modalGenerator(partIndex){
+    document.body.style.overflowY = "hidden";
     modalWrapper.style.display = "block";
     modalWrapper.innerHTML = `
         <div class="modal">
@@ -137,6 +138,7 @@ function modalGenerator(partIndex){
         </div>
     `
     document.getElementById("close-modal").addEventListener("click",()=>{
+        document.body.style.overflowY = "auto";
         modalWrapper.style.display = "none";
         modalWrapper.innerHTML = "";
     })
