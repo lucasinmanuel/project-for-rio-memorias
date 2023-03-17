@@ -32,7 +32,7 @@ movieBtn.addEventListener("click",()=>{
         audiosWrapper.children[0].autoplay = true;
         audiosWrapper.children[0].load();
 
-        megaphoneBtn.style.display = "block";
+        megaphoneBtn.style.display = "inline-block";
         movieBtnBoolean = false;
 
         configFilmRolls()

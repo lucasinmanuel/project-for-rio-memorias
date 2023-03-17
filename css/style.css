@@ -30,6 +30,7 @@ body {
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 3%;
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
@@ -89,20 +90,16 @@ body {
 
 #movie-btn {
     width: 7rem;
-    position: fixed;
-    top: 0.8rem;
-    left: 0.8rem;
     z-index: 3;
     cursor: pointer;
+    margin-top: 1.125rem;
 }
 
 #megaphone-btn {
     width: 7rem;
-    position: fixed;
-    top: 10rem;
-    left: 0.8rem;
     z-index: 3;
     cursor: pointer;
+    margin-top: 1.125rem;
     display: none;
 }
 
@@ -129,6 +126,8 @@ video {
     border-right: 9.6px solid transparent;
     border-image: linear-gradient(0deg, rgba(49, 48, 0, 1) 0%, rgba(108, 105, 0, 1) 10%, rgba(125, 121, 0, 1) 15%, rgba(143, 138, 0, 1) 25%, rgba(209, 202, 0, 1) 35%, rgba(255, 246, 0, 1) 50%, rgba(209, 202, 0, 1) 65%, rgba(143, 138, 0, 1) 75%, rgba(125, 121, 0, 1) 85%, rgba(108, 105, 0, 1) 90%, rgba(49, 48, 0, 1) 100%);
     border-image-slice: 1;
+    text-align: center;
+    padding: 0 0.125rem;
 }
 
 #curtain-right {
