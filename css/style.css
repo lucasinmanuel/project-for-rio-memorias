@@ -23,6 +23,7 @@ body {
 
 .modal {
     width: 90%;
+    max-width: 90%;
     height: 90%;
     position: absolute;
     top: 50%;
@@ -147,8 +148,8 @@ video {
     animation-duration: 3s;
     animation-iteration-count: infinite;
     position: absolute;
-    width: 96%;
-    margin-left: 1.5%;
+    margin: 1.5%;
+    width: calc(96% - 10px);
     z-index: 1;
 }
 
