@@ -3,6 +3,7 @@ import content from "./content.js";
 let filmRollWrapper = document.getElementById("film-roll-wrapper");
 let bgMovie = document.getElementById("bg-movie");
 let audiosWrapper = document.getElementById("audios-wrapper");
+let modalWrapper = document.getElementById("modal-wrapper");
 
 let movieBtn = document.getElementById("movie-btn");
 let megaphoneBtn = document.getElementById("megaphone-btn");
@@ -24,7 +25,7 @@ movieBtn.addEventListener("click",()=>{
             </audio>
         `
 
-        audiosWrapper.children[0].volume =  megaphoneBtnBoolean ? 0.1 : 0;
+        audiosWrapper.children[0].volume =  megaphoneBtnBoolean ? 0.03 : 0;
 
         audiosWrapper.children[0].autoplay = true;
         audiosWrapper.children[0].load();
@@ -50,18 +51,18 @@ megaphoneBtn.addEventListener("click",()=>{
         megaphoneBtnBoolean = false;
     }else{
         megaphoneBtn.style.opacity = 1;
-        audiosWrapper.children[0].volume = 0.1;
+        audiosWrapper.children[0].volume = 0.03;
         megaphoneBtnBoolean = true;
     }
 })
 
 window.addEventListener("resize",()=>{
-    console.log(content[0].pathImage)
     configFilmRolls()
 })
 
 function configFilmRolls(){
-    let viewWidth = window.innerWidth
+    filmRollWrapper.innerHTML = "";
+    let viewWidth = window.innerWidth;
     if(viewWidth > 1024){
         filmRollsGenerator(2,["","",""])
     }else if(viewWidth > 720){
@@ -72,27 +73,27 @@ function configFilmRolls(){
 }
 
 function filmRollsGenerator(nFilmRolls,nParts){
-    let globalIndex = 0;
+    let contentIndex = 0;
     let filmRollsHeight = 16
     for(let i = 0;i < nFilmRolls;i++){
         filmRollWrapper.innerHTML += `
             <div style="top:${filmRollsHeight}vh;transform: skew(5deg, 2deg);" class="film-roll">
                 <div class="outline-1">
                     <div class="outline-2">
-                        <div class="part">
+                        <div class="placeholder-part">
                             <div class="placeholder-item"></div>
                         </div>
                         ${
                            nParts.map(()=>{
-                            globalIndex++
+                            contentIndex++
                             return(`
                                 <div class="part">
-                                    <div style="background-image: url(${content[globalIndex - 1].pathImage})" class="item"></div>
+                                    <div alt="${content[contentIndex - 1].title}" title="${content[contentIndex - 1].title}" style="background-image: url(${content[contentIndex - 1].pathImage})" class="item"></div>
                                 </div>
                             `)
-                           }) 
+                           }).join("")
                         }
-                        <div class="part">
+                        <div class="placeholder-part"">
                             <div class="placeholder-item"></div>
                         </div>
                     </div>
@@ -102,5 +103,40 @@ function filmRollsGenerator(nFilmRolls,nParts){
         `
         filmRollsHeight += 134
     }
+    let parts = document.getElementsByClassName("part");
+    for(let i = 0;i < parts.length;i++){
+        parts[i].addEventListener("click",()=>{
+            modalGenerator(i)
+        })
+    }
+}
+
+function modalGenerator(partIndex){
+    modalWrapper.style.display = "block";
+    modalWrapper.innerHTML = `
+        <div class="modal">
+            <b id="close-modal">X</b>
+            <div class="credits">
+                <span>${content[partIndex].creditText}</span>
+                <span>Foto tirada do site: <a target="_blank" href="${content[partIndex].creditLink}">${content[partIndex].creditLink}</a></span>
+            </div>
+            <div class="overview">
+                <img src="${content[partIndex].pathImage}" />
+                <div>
+                    <h1>${content[partIndex].title}</h1>
+                    <p>${content[partIndex].overview.split("::")[0]}</p>
+                </div>
+            </div>
+            ${
+                content[partIndex].overview.split("::").slice(1,).map((value)=>{
+                    return(`<p>${value}</p>`)
+                }).join("")
+            }
+        </div>
+    `
+    document.getElementById("close-modal").addEventListener("click",()=>{
+        modalWrapper.style.display = "none";
+        modalWrapper.innerHTML = "";
+    })
 }
 

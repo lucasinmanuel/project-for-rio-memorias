@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 
 html,
@@ -10,10 +11,79 @@ body {
     background-color: rgb(20, 20, 20);
 }
 
+#modal-wrapper {
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(6, 6, 6, 0.5);
+}
+
+.modal {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 3%;
+    overflow-y: auto;
+}
+
+#close-modal {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    color: brown;
+    cursor: pointer;
+    font-size: 22px;
+    transition: 0.1s;
+}
+
+#close-modal:hover {
+    transform: scale(1.4);
+}
+
+.credits span {
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+    color: darkgrey;
+    display: block;
+    max-width: 95%;
+}
+
+.modal p {
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.modal h1 {
+    font-size: 32px;
+}
+
+.overview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.overview img {
+    width: 50%;
+    text-align: center;
+}
+
+.overview div {
+    width: 50%;
+}
+
 #movie-btn {
     width: 7rem;
     position: fixed;
-    top: 12.8px;
+    top: 0.8rem;
     left: 0.8rem;
     z-index: 3;
     cursor: pointer;
@@ -22,7 +92,7 @@ body {
 #megaphone-btn {
     width: 7rem;
     position: fixed;
-    top: 150px;
+    top: 10rem;
     left: 0.8rem;
     z-index: 3;
     cursor: pointer;
@@ -102,6 +172,13 @@ video {
     border-bottom-style: dashed;
     border-top-width: 5px;
     border-bottom-width: 5px;
+}
+
+.placeholder-part {
+    width: 50%;
+    height: 100%;
+    padding: 0.625rem 0;
+    margin: 0 0.5rem;
 }
 
 .part {
