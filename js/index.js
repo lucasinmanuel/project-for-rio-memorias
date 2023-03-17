@@ -17,11 +17,13 @@ movieBtn.addEventListener("click",()=>{
         bgMovie.innerHTML = `
             <video muted autoplay loop>
                 <source src="./videos/old-cinema-filter.mp4" type="video/mp4">
+                <source src="./videos/old-cinema-filter.webm" type="video/webm">
             </video>
         `
         audiosWrapper.innerHTML = `
             <audio loop>
                 <source src="./audios/movie-projector-noise.mp3" type="audio/mp3">
+                <source src="./audios/movie-projector-noise.ogg" type="audio/ogg">
             </audio>
         `
 
