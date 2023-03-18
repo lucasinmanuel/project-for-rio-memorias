@@ -63,6 +63,7 @@ body {
     color: darkgrey;
     display: block;
     max-width: 95%;
+    word-break: break-all;
 }
 
 .modal p {
@@ -72,6 +73,10 @@ body {
 
 .modal h1 {
     font-size: 32px;
+}
+
+.modal h2 {
+    font-size: 19.2px;
 }
 
 .overview {
@@ -89,18 +94,19 @@ body {
     width: 50%;
 }
 
-#movie-btn {
+#movie-btn,
+#info-btn {
     width: 7rem;
     z-index: 3;
     cursor: pointer;
-    margin-top: 1.125rem;
+    margin-top: 2rem;
 }
 
 #megaphone-btn {
     width: 7rem;
     z-index: 3;
     cursor: pointer;
-    margin-top: 1.125rem;
+    margin-top: 2rem;
     display: none;
 }
 

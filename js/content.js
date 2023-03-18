@@ -95,7 +95,7 @@ const filmRolls = [
     },
     {
         "id": 6,
-        "pathImage": "../images/rua-do-ouvidor.jpg",
+        "pathImage": "../images/rua-do-ouvidor-1.jpg",
         "title": "A Rua do Ouvidor no Século 20 e Início de Século 21",
         "pictureDesc": "Rua Ouvidor no centro do Rio de Janeiro, Brasil. 6 de Fevereiro de 2019, 16:18:52",
         "creditLink": `

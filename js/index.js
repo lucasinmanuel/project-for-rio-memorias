@@ -7,6 +7,7 @@ let modalWrapper = document.getElementById("modal-wrapper");
 
 let movieBtn = document.getElementById("movie-btn");
 let megaphoneBtn = document.getElementById("megaphone-btn");
+let infoBtn = document.getElementById("info-btn");
 
 let movieBtnBoolean = true;
 let megaphoneBtnBoolean = true;
@@ -56,6 +57,10 @@ megaphoneBtn.addEventListener("click",()=>{
         audiosWrapper.children[0].volume = 0.03;
         megaphoneBtnBoolean = true;
     }
+})
+
+infoBtn.addEventListener("click",()=>{
+    modalGenerator(null,"info")
 })
 
 window.addEventListener("resize",()=>{
@@ -108,40 +113,64 @@ function filmRollsGenerator(nFilmRolls,nParts){
     let parts = document.getElementsByClassName("part");
     for(let i = 0;i < parts.length;i++){
         parts[i].addEventListener("click",()=>{
-            modalGenerator(i)
+            modalGenerator(i,"part")
         })
     }
 }
 
-function modalGenerator(partIndex){
+function modalGenerator(partIndex,type){
     document.body.style.overflowY = "hidden";
     modalWrapper.style.display = "block";
-    modalWrapper.innerHTML = `
-        <div class="modal">
-            <b id="close-modal">X</b>
-            <span class="picture-desc">${content[partIndex].pictureDesc}</span>
-            <div class="overview">
-                <img src="${content[partIndex].pathImage}" />
-                <div>
-                    <h1>${content[partIndex].title}</h1>
-                    <p>${content[partIndex].overview.split("::")[0]}</p>
+    switch(type){
+        case "part":
+            modalWrapper.innerHTML = `
+                <div class="modal">
+                    <b id="close-modal">X</b>
+                    <span class="picture-desc">${content[partIndex].pictureDesc}</span>
+                    <div class="overview">
+                        <img src="${content[partIndex].pathImage}" />
+                        <div>
+                            <h1>${content[partIndex].title}</h1>
+                            <p>${content[partIndex].overview.split("::")[0]}</p>
+                        </div>
+                    </div>
+                    ${
+                        content[partIndex].overview.split("::").slice(1,).map((value)=>{
+                            return(`<p>${value}</p>`)
+                        }).join("")
+                    }
+                    <div class="credits">
+                        <span>Créditos: </span>
+                        ${
+                            content[partIndex].creditLink.split("::").map((value)=>{
+                                return(`<span><a target="_blank" href="${value}">${value}</a></span>`)
+                            }).join("")
+                        }
+                    </div>
                 </div>
-            </div>
-            ${
-                content[partIndex].overview.split("::").slice(1,).map((value)=>{
-                    return(`<p>${value}</p>`)
-                }).join("")
-            }
-            <div class="credits">
-                <span>Créditos: </span>
-                ${
-                    content[partIndex].creditLink.split("::").map((value)=>{
-                        return(`<span><a target="_blank" href="${value}">${value}</a></span>`)
-                    }).join("")
-                }
-            </div>
-        </div>
-    `
+            `
+            break;
+        case "info":
+            modalWrapper.innerHTML = `
+                <div class="modal">
+                    <b id="close-modal">X</b>
+                        <h1>História da Rua do Ouvidor - Rio de Janeiro, Brasil</h1>
+                        <p>Projeto criado para servir como complemento a uma entrega em equipe para o <a target="_blank" href="https://www.linkedin.com/company/rio-mem%C3%B3rias/">Rio Mémorias</a>. Esse site tem como foco mostrar grande parte da história da famosa Rua do Ouvidor.</p>
+                        <p>Suas origens, curiosidades e mudanças com o passar do tempo são encontradas aqui!</p>
+                        <br />
+                        <img width="100%" title="Rua do Ouvidor" alt="Rua do Ouvidor" src="../images/rua-do-ouvidor-2.jpg" />
+                        <br />
+                        <h2>Créditos: </h2>
+                        <p>Imagem da Rua do Ouvidor vem de https://misscheck-in.com/2011/07/12/um-passeio-pelo-centro-rio/</p>
+                        <p>O projetor PNG foi desenvolvido por 58pic e vem de https://pt.pngtree.com/freepng/vintage-cinema-film-projector_7191063.html?sol=downref&id=bef</p>
+                        <p>O megafone PNG vem de https://www.dreamstime.com/film-director-s-megaphone-isolated-film-director-s-megaphone-isolated-white-background-d-render-image154137456</p>
+                        <p>A placa de badalo de filme e carretel de filme vem de https://www.shutterstock.com/pt/image-illustration/movie-clapper-board-film-reel-109603958</p>
+                    </div>
+                </div>
+            `
+            break;
+    }
+    
     document.getElementById("close-modal").addEventListener("click",()=>{
         document.body.style.overflowY = "auto";
         modalWrapper.style.display = "none";
