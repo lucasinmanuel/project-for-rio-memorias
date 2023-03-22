@@ -158,9 +158,10 @@ function modalGenerator(partIndex,type){
                         <p>Projeto criado para servir como complemento a uma entrega em equipe para o <a target="_blank" href="https://www.linkedin.com/company/rio-mem%C3%B3rias/">Rio Mémorias</a>. Esse site tem como foco mostrar grande parte da história da famosa Rua do Ouvidor.</p>
                         <p>Suas origens, curiosidades e mudanças com o passar do tempo são encontradas aqui!</p>
                         <br />
-                        <img width="100%" title="Rua do Ouvidor" alt="Rua do Ouvidor" src="../images/rua-do-ouvidor-2.jpg" />
+                        <iframe src="https://www.youtube.com/embed/AnsKenLeXGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <br />
                         <h2>Créditos: </h2>
+                        <p>Vídeo da Rua do Ouvidor vem de https://www.youtube.com/@riocult8257</p>
                         <p>Imagem da Rua do Ouvidor vem de https://misscheck-in.com/2011/07/12/um-passeio-pelo-centro-rio/</p>
                         <p>O projetor PNG foi desenvolvido por 58pic e vem de https://pt.pngtree.com/freepng/vintage-cinema-film-projector_7191063.html?sol=downref&id=bef</p>
                         <p>O megafone PNG vem de https://www.dreamstime.com/film-director-s-megaphone-isolated-film-director-s-megaphone-isolated-white-background-d-render-image154137456</p>

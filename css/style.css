@@ -35,6 +35,14 @@ body {
     overflow-y: auto;
 }
 
+iframe {
+    width: 100%;
+    height: 615px;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+}
+
 #close-modal {
     position: absolute;
     top: 3%;

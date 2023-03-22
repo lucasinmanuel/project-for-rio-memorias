@@ -8,6 +8,10 @@
     html {
         font-size: 80%;
     }
+
+    iframe {
+        height: 515px !important;
+    }
 }
 
 @media screen and (max-width:1150px) {
@@ -26,6 +30,10 @@
     .overview div {
         width: 100%;
     }
+
+    iframe {
+        height: 415px !important;
+    }
 }
 
 @media screen and (max-width:950px) {
@@ -37,6 +45,10 @@
 @media screen and (max-width:850px) {
     html {
         font-size: 50%;
+    }
+
+    iframe {
+        height: 315px !important;
     }
 }
 
