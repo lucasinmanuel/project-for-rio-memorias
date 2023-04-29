@@ -155,7 +155,7 @@ function modalGenerator(partIndex,type){
                 <div class="modal">
                     <b id="close-modal">X</b>
                         <h1>História da Rua do Ouvidor - Rio de Janeiro, Brasil</h1>
-                        <p>Projeto criado para servir como complemento a uma entrega em equipe para o <a target="_blank" href="https://www.linkedin.com/company/rio-mem%C3%B3rias/">Rio Mémorias</a>. Esse site tem como foco mostrar grande parte da história da famosa Rua do Ouvidor.</p>
+                        <p>Projeto criado para servir como complemento a uma entrega em equipe para o <a target="_blank" href="https://www.linkedin.com/company/rio-mem%C3%B3rias/">Rio Memórias</a>. Esse site tem como foco mostrar grande parte da história da famosa Rua do Ouvidor.</p>
                         <p>Suas origens, curiosidades e mudanças com o passar do tempo são encontradas aqui!</p>
                         <br />
                         <iframe src="https://www.youtube.com/embed/AnsKenLeXGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
