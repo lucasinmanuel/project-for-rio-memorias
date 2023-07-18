@@ -1,5 +1,7 @@
 # Project for Rio Memórias
 
+<img alt="Project status" title="Project status" src="https://badgen.net/badge/status/complete/green?icon=github">
+
 !['Screenshot of website'](./public/screenshot-project-for-rio-memorias.JPG 'Screenshot of website')
 
 Projeto criado para servir como complemento a uma entrega em equipe para o Rio Memórias. Esse site tem como foco mostrar grande parte da história da famosa Rua do Ouvidor. Suas origens, curiosidades e mudanças com o passar do tempo são encontradas aqui!
