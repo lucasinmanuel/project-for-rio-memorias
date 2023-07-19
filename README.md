@@ -6,15 +6,6 @@
 
 Projeto criado para servir como complemento a uma entrega em equipe para o Rio Memórias. Esse site tem como foco mostrar grande parte da história da famosa Rua do Ouvidor. Suas origens, curiosidades e mudanças com o passar do tempo são encontradas aqui!
 
-## Mechanics (testing)
-
-- Empty field alert
-- Equal value alert
-- Copy button
-- Text copy alert
-- Currency converter
-- Temperature converter
-
 ## Technologies used
 <span>
 <img alt="HTML5" title="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
